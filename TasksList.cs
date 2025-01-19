@@ -24,10 +24,10 @@ namespace _113120_Projekt
         public void addTaskAsLastElement(string title, string priority)
         {
             Task taskToAdd = new Task(title, priority);
-            
-            
-            //if ((this.firstTask == null) || (this.lastTask == null))
-            if (this.lastTask == null)
+
+
+
+            if (this.numberOfTasks == 0)
             {
                 this.firstTask = taskToAdd;
                 this.lastTask = taskToAdd;
@@ -39,7 +39,6 @@ namespace _113120_Projekt
                 taskToAdd.previous = this.lastTask;
                 this.lastTask.next = taskToAdd;
                 this.lastTask = taskToAdd;
-                this.lastTask.next = null; //TODO napewno?
             }
             this.numberOfTasks++;
         }
@@ -55,7 +54,6 @@ namespace _113120_Projekt
                         if (this.firstTask != null)
                         {
                             this.firstTask.previous.next = null;
-
                             this.firstTask.previous = null;
                         }
                         this.numberOfTasks--;
@@ -71,7 +69,8 @@ namespace _113120_Projekt
                 }
             }
         }
-        //TODO remove z listy obojętnie którego po popupie, flaga isDeleted=true i przesuniećie do sublisty
+        //TODO remove z listy obojętnie którego po popupie z potwierdzeniem usunięcia,
+        //flaga isDeleted=true i przesuniećie do sublisty
         public string ToString()
         {
             string tmpStr = "";
