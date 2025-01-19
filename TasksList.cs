@@ -24,7 +24,8 @@ namespace _113120_Projekt
         public void addTaskAsLastElement(string title, string priority)
         {
             Task taskToAdd = new Task(title, priority);
-            this.numberOfTasks++;
+            
+            
             //if ((this.firstTask == null) || (this.lastTask == null))
             if (this.lastTask == null)
             {
@@ -40,6 +41,7 @@ namespace _113120_Projekt
                 this.lastTask = taskToAdd;
                 this.lastTask.next = null; //TODO napewno?
             }
+            this.numberOfTasks++;
         }
         public void removeFirstTask() //TODO refaktor usuwanie pierwszego elementu ma wykonywać się po zmianie statusu z inprogress na done
         {

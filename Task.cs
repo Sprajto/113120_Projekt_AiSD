@@ -24,10 +24,10 @@ namespace _113120_Projekt
         }
         public override string ToString() 
         {
-            return taskTitle+"\n"
-                +taskPriority+"\n"
-                +taskStatus+"\n"
-                +createDate+"\n";
+            return "Tytuł     :"+taskTitle+"\n"+
+                   "Priorytet :"+taskPriority+"\n"+
+                   "Status    :"+taskStatus+"\n"+
+                   "Utworzone :" +createDate+"\n";
         }
     }
 }

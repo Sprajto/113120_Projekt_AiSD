@@ -3,29 +3,43 @@ namespace _113120_Projekt
     public partial class FormMain : Form
     {
         TasksList KanbanList = new TasksList();
-        void clearInputs()
-        {
-            taskTitleInput.Text = "";
-            taskPriorityInput.Text = null;
-        }
+
         public FormMain()
         {
             InitializeComponent();
             //TODO import danych xml?
         }
-
+        void showTasksInBox()
+        {
+        boxOfCurrentTasks.Text = KanbanList.ToString();
+        }
+        void clearInputs()
+        {
+            taskTitleInput.Text = "";
+            taskPriorityInput.Text = null;
+        }
         private void addTaskBtn_Click(object sender, EventArgs e)
         {
-            KanbanList.addTaskAsLastElement(taskTitleInput.Text, taskPriorityInput.Text);
-            clearInputs();
-            boxOfCurrentTasks.Text = KanbanList.ToString(); //TODO do funkcji
+            if ((taskTitleInput.Text == "") || (taskPriorityInput.Text == ""))
+            {
+                MessageBox.Show("W celu dodania zadania nale¿y wprowadziæ tytu³ zadania oraz wybraæ priorytet", 
+                "Niepoprawne wartoœci",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            }
+            else
+            {
+                KanbanList.addTaskAsLastElement(taskTitleInput.Text, taskPriorityInput.Text);
+                clearInputs();
+                showTasksInBox();
+            }
         }
 
         private void removeTaskBtn_Click(object sender, EventArgs e)
         {
             KanbanList.removeFirstTask();
             //clearInputs();
-            boxOfCurrentTasks.Text = KanbanList.ToString(); //TODO do funkcji
+            showTasksInBox();
         }
     }
 }

@@ -10,7 +10,7 @@ Roadmap
 - interfejs 0.1
 
 - sesja testów
-- modify
+- modify status
 - sortowanie per time_stamp
 - button 
 - sesja testów 
